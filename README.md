@@ -145,15 +145,15 @@ Finally, we configure the api-doc path, and the API domain:
 ```
 ## Configuring our index.html file
 
-Go to `/dist/index.html` and find the `url = "http://petstore.swagger.io/v2/swagger.json";` line. 
+Go to `/dist/index.html` and find the ```javascript url = "http://petstore.swagger.io/v2/swagger.json";``` line. 
 
-We will replace it with `url = "api-docs.json";`
+We will replace it with ```javascript url = "api-docs.json";```
 
 ```javascript
 	if (url && url.length > 1) {
         url = decodeURIComponent(url[1]);
     } else {
-    	~~ url = "http://petstore.swagger.io/v2/swagger.json"; ~~
+    	~~url = "http://petstore.swagger.io/v2/swagger.json";~~
         url = "api-docs.json";
     }
 ```
