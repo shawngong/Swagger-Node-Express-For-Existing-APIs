@@ -12,11 +12,11 @@ With this guide, you will learn how to configure an existing node API with Swagg
 
 # Contents
 
-* Assumptions
+* [Assumptions](# Assumptions)
 * The Idea
 * What to Use
 * Setting up Swagger
-* Swagger-Spec
+* [Swagger-Spec](# Swagger-Spec) 
 * Troubleshooting
 
 # Assumptions
@@ -158,4 +158,6 @@ We will replace it with `url = "api-docs.json";`
     }
 ```
 
-Next, we will have to 
+Next, we will have to create a `api-docs.json` file in our `dist` directory. This file will be our Swagger-spec.
+
+# Swagger-Spec
