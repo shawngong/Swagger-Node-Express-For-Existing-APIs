@@ -12,19 +12,19 @@ With this guide, you will learn how to configure an existing node API with Swagg
 
 # Contents
 
-* [Assumptions](https://github.com/shawngong/Swagger-Node-Express-For-Existing-APIs#assumptions)
-* The Idea
-* What to Use
+* [Getting Started](https://github.com/shawngong/Swagger-Node-Express-For-Existing-APIs#getting-started)
 * [Setting up Swagger](https://github.com/shawngong/Swagger-Node-Express-For-Existing-APIs#setting-up-swagger)
 * [Swagger-Spec](https://github.com/shawngong/Swagger-Node-Express-For-Existing-APIs#swagger-spec) 
 * Troubleshooting
 
-# Assumptions
+# Getting Started
+
+## Assumptions
 
 For the purpose of this guide we will assume that you have a working knowledge of node.js and express, as
 well as an existing node API. 
 
-# The Idea
+## The Idea
 
 What we want to do is set up Swagger as a subpath within our existing API (which may or may not already have 
 an UI). Thus, the Swagger routes will not interfer with the routes that already exist within our API. 
@@ -34,7 +34,7 @@ all the information Swagger-UI needs to generate its UI.
 
 Finally, we will set up [Swagger-UI](https://github.com/swagger-api/swagger-ui) with the spec, and make sure the endpoints are being tested properly. 
 
-# What to Use
+## What to Use
 
 We will be using [Swagger-Node-Express](https://github.com/swagger-api/swagger-node-express), [minimist](https://www.npmjs.com/package/minimist), [body-parser](https://www.npmjs.com/package/body-parser) and [Swagger-UI](https://github.com/swagger-api/swagger-ui). 
 
