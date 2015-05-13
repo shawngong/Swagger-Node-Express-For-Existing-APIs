@@ -5,4 +5,16 @@ A comprehensive guide on setting up Swagger in already built node-express-APIs.
 
 [Swagger](http://swagger.io/) is an open source software that allows for easy RESTful API documentation. 
 However, a lot of the documentation is based around creating Swagger compatable APIs from the ground up. 
-Thus, it is quite confusing to configure an existing API to use Swagger. It is this guides goal to help with that!  
+With this guide, you will learn how to configure an existing node API with Swagger.
+
+# Contents
+
+Assumptions
+The idea
+What to use
+Setting up Swagger
+Swagger-Spec
+Troubleshooting
+
+
+
