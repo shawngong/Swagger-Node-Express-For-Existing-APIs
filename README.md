@@ -12,11 +12,11 @@ With this guide, you will learn how to configure an existing node API with Swagg
 
 # Contents
 
-* [Assumptions](/Swagger-Node-Express-For-Existing-APIs#%20Swagger-Spec#assumptions)
+* [Assumptions](/Swagger-Node-Express-For-Existing-APIs#assumptions)
 * The Idea
 * What to Use
 * Setting up Swagger
-* [Swagger-Spec](/Swagger-Node-Express-For-Existing-APIs#%20Swagger-Spec#swagger-Spec) 
+* [Swagger-Spec](/Swagger-Node-Express-For-Existing-APIs#swagger-spec) 
 * Troubleshooting
 
 # Assumptions
