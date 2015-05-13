@@ -59,3 +59,8 @@ We begin by including `swagger-node-express` and `minimist` in our `package.json
 
 
 ```
+
+Then we install these modules using `npm install`
+
+## Adding Swagger to our Application
+
