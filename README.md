@@ -167,6 +167,6 @@ In our `api-docs.json` file we generate a [Swagger-spec](https://github.com/swag
 The link will provide you with most information but it can be overwhelming so I will provide you with the most
 important things to know about Swagger-spec for Swagger 2.0.
 
-Please consult [here] for a sample Swagger-spec with detailed documentation about the common components of a Swagger-spec. 
+Please consult [here](https://github.com/shawngong/Swagger-Node-Express-For-Existing-APIs/blob/master/sample-spec.json) for a sample Swagger-spec.
 
 ## 

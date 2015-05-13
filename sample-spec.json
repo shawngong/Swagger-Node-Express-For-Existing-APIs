@@ -11,11 +11,9 @@
     {"name": "Tag1", 
     "description": "API for something"
     }
-    //This is where you describe the tags
   ],
   "schemes": [
     "https"
-    //Use https for a https site, or http otherwise
   ],
   "consumes": [
     "application/json"
@@ -25,11 +23,8 @@
   ],
   "paths": {
     "/path/to/method": {
-      //This should be the path to your API method
        "post": {
-        //What type of request this method is
           "tags": ["Tag1"],
-          //All Apis that have the "Tag1" tag will be grouped together
           "description": "what this API does",
           "operationId": "for the URL",
           "produces": [
@@ -39,11 +34,9 @@
               {
                 "name": "Job Parameters",
                 "in": "body",
-                //"body" allows the user to input a json. 
                 "description": "Job to add to the database",
                 "required": true,
               "schema": {
-                //model schema will be generated from 'definitions' at the bottom of this file
                 "$ref": "#/definitions/createJobs"
                 }
             }
@@ -59,7 +52,6 @@
         }
     },
     "/path/to/method/{jobID}": {
-      //{jobID} allows the corresponding jobID parameter to appear in the API path
         "delete":{
           "tags":["Tag1"],
           "description":"Deletes a specific job",
@@ -71,7 +63,6 @@
               {
                 "name": "jobID",
                 "in": "path",
-                //"path" specifies that this parameter will be in the path of the API
                 "description": "ID of job to delete",
                 "required": true,
                 "type": "string"
@@ -86,7 +77,6 @@
             }
           }
         },
-      //If two methods have the same path, but different request types, nest them like so 
       "get":{
           "tags": [ "Tag1"],
           "description": "Returns the status of a specific job",
@@ -115,21 +105,17 @@
       }
   },
   "definitions": {
-    //These are model schema definitions
     "createJobs": {
       "properties": {
         "eventId": {
           "required":true,
-          //Whether the parameter is optional or not
           "type": "string",
           "example": "mathmaticial"
-          //example to put in the model schema, swagger will put the 
-          // type of the parameter as the example. 
         },
         "numberRequired": {
           "required":true,
           "type":"integer",
-          "format": "int64", // specify int64 or int32
+          "format": "int64",
           "example": 500
         } 
       }
@@ -144,7 +130,6 @@
           "request": {
             "required":true,
             "type": "schema",
-            //example of a nested schema
             "example": {
               "eventId":"mathmaticial",
               "numberRequired": 500
