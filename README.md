@@ -36,7 +36,7 @@ Finally, we will set up [Swagger-UI](https://github.com/swagger-api/swagger-ui) 
 
 # What to Use
 
-We will be using [Swagger-Node-Express](https://github.com/swagger-api/swagger-node-express), [minimist](https://www.npmjs.com/package/minimist) and [Swagger-UI](https://github.com/swagger-api/swagger-ui). 
+We will be using [Swagger-Node-Express](https://github.com/swagger-api/swagger-node-express), [minimist](https://www.npmjs.com/package/minimist), [body-parser](https://www.npmjs.com/package/body-parser) and [Swagger-UI](https://github.com/swagger-api/swagger-ui). 
 
 # Setting up Swagger
 
@@ -49,18 +49,52 @@ We begin by including `swagger-node-express` and `minimist` in our `package.json
 	"dependencies": {
 		"swagger-node-express": "~2.0",
     	"minimist": "*",
+    	"body-parser": "1.9.x",
     	...
 	}
 
 	...
 
-
 }
-
-
 ```
 
 Then we install these modules using `npm install`
 
+## Cloning Swagger-UI
+
+We go to [Swagger-UI](https://github.com/swagger-api/swagger-ui) and clone their repository into our project.
+
+Then we remove the `dist` directory from the Swagger-UI folder and delete the remainder of the folder (it is not necessary). The `dist` folder from Swagger-UI contains a functioning example of Swagger-UI, which is all we need. 
+
 ## Adding Swagger to our Application
+
+We go into our express application and begin by adding swagger and minimist as dependencies: 
+
+```javascript
+	var express = require( 'express' );
+	...
+	var argv = require('minimist')(process.argv.slice(2));
+	var swagger = require("swagger-node-express");
+	var bodyParser = require( 'body-parser' );
+```
+Then, after the app is initialized, we set swagger to a subpath to avoid route overlaps: 
+
+```javascript
+	var app = express();
+	var subpath = express();
+
+	app.use(bodyParser());
+	app.use("/v1", subpath);
+
+	swagger.setAppHandler(subpath);
+```
+Next, we make sure that `/dist` is able to serve static files in express: 
+
+```javascript
+	app.use(express.static('dist'));
+```
+
+
+
+
 
