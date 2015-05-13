@@ -26,15 +26,36 @@ well as an existing node API.
 
 # The Idea
 
-What we want to do is set up Swagger-UI as a subpath within our existing API (which may or may not already have 
+What we want to do is set up Swagger as a subpath within our existing API (which may or may not already have 
 an UI). Thus, the Swagger routes will not interfer with the routes that already exist within our API. 
 
 We will then create a [swagger-spec](https://github.com/swagger-api/swagger-spec), which is .json file that contains
 all the information Swagger-UI needs to generate its UI. 
 
-Finally, we will set up Swagger-UI with the spec, and make sure the endpoints are being tested properly. 
+Finally, we will set up [Swagger-UI](https://github.com/swagger-api/swagger-ui) with the spec, and make sure the endpoints are being tested properly. 
 
 # What to Use
 
 We will be using [Swagger-Node-Express](https://github.com/swagger-api/swagger-node-express), [minimist](https://www.npmjs.com/package/minimist) and [Swagger-UI](https://github.com/swagger-api/swagger-ui). 
 
+# Setting up Swagger
+
+We begin by including 'swagger-node-express' and 'minimist' in our 'package.json' dependencies.
+
+'''javascript
+{
+	...
+
+	"dependencies": {
+		"swagger-node-express": "~2.0",
+    	"minimist": "*",
+    	...
+	}
+
+	...
+
+
+}
+
+
+'''
