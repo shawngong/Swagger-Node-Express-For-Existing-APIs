@@ -161,3 +161,12 @@ We will replace it with `url = "api-docs.json";`
 Next, we will have to create a `api-docs.json` file in our `dist` directory. This file will be our Swagger-spec.
 
 # Swagger-Spec
+
+In our `api-docs.json` file we generate a [Swagger-spec](https://github.com/swagger-api/swagger-spec). 
+
+The link will provide you with most information but it can be overwhelming so I will provide you with the most
+important things to know about Swagger-spec for Swagger 2.0.
+
+Please consult [here] for a sample Swagger-spec with detailed documentation about the common components of a Swagger-spec. 
+
+## 
