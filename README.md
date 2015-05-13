@@ -68,7 +68,7 @@ Then we remove the `dist` directory from the Swagger-UI folder and delete the re
 
 ## Adding Swagger to our Application
 
-We go into our express application and begin by adding swagger and minimist as dependencies: 
+We go into our express application and begin by adding swagger,minimist, and body-parser as dependencies: 
 
 ```javascript
 	var express = require( 'express' );
@@ -93,8 +93,54 @@ Next, we make sure that `/dist` is able to serve static files in express:
 ```javascript
 	app.use(express.static('dist'));
 ```
+We continue by setting the info for our API:
 
+```javascript
+	swagger.setApiInfo({
+	    title: "example API",
+	    description: "API to do something, manage something...",
+	    termsOfServiceUrl: "",
+	    contact: "yourname@something.com",
+	    license: "",
+	    licenseUrl: ""
+	});
+```
+We now want to get the `/dist/index.html` file that we pulled from the [Swagger-UI](https://github.com/swagger-api/swagger-ui) `dist` directory in our API. 
 
+```javascript
+	app.get('/', function (req, res) {
+	    res.sendFile(__dirname + '/dist/index.html');
+	});
+```
+Finally, we configure the api-doc path, and the API domain:
 
+```javascript
+		// Set api-doc path
+	swagger.configureSwaggerPaths('', 'api-docs', '');
+	 
+	// Configure the API domain
+	var domain = 'localhost';
+	if(argv.domain !== undefined)
+	    domain = argv.domain;
+	else
+	    console.log('No --domain=xxx specified, taking default hostname "localhost".')
+	 
+	// Configure the API port
+	var port = 8080;
+	if(argv.port !== undefined)
+	    port = argv.port;
+	else
+	    console.log('No --port=xxx specified, taking default port ' + port + '.')
+	 
+	// Set and display the application URL
+	var applicationUrl = 'http://' + domain + ':' + port;
+	console.log('snapJob API running on ' + applicationUrl);
+	 
 
+	swagger.configure(applicationUrl, '1.0.0');
+
+	 
+	// Start the web server
+	app.listen(port);
+```
 
