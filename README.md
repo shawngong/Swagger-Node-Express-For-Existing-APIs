@@ -40,9 +40,9 @@ We will be using [Swagger-Node-Express](https://github.com/swagger-api/swagger-n
 
 # Setting up Swagger
 
-We begin by including 'swagger-node-express' and 'minimist' in our 'package.json' dependencies.
+We begin by including `swagger-node-express` and `minimist` in our `package.json` dependencies.
 
-'''javascript
+```javascript
 {
 	...
 
@@ -58,4 +58,4 @@ We begin by including 'swagger-node-express' and 'minimist' in our 'package.json
 }
 
 
-'''
+```
