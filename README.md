@@ -9,12 +9,12 @@ With this guide, you will learn how to configure an existing node API with Swagg
 
 # Contents
 
-Assumptions
-The idea
-What to use
-Setting up Swagger
-Swagger-Spec
-Troubleshooting
+* Assumptions
+* The idea
+* What to use
+* Setting up Swagger
+* Swagger-Spec
+* Troubleshooting
 
 
 
