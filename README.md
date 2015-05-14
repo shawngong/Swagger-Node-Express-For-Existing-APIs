@@ -171,7 +171,7 @@ Please consult [here](https://github.com/shawngong/Swagger-Node-Express-For-Exis
 
 ## Https vs. Http
 
-Depending on whether your web app is serving https or http files make sure to adjust your `schemes` component of the 
+Depending on whether our web app is serving https or http files make sure to adjust our `schemes` component of the 
 Swagger-spec to the appropriate transfer protocol. 
 
 Example
@@ -195,7 +195,7 @@ Example
   ],
   ...
 ```
-Then in each path, set a `tags` parameter with whatever tag group you want the method to be apart of.
+Then in each path, set a `tags` parameter with whatever tag group we want the method to be apart of.
 
 ```Javascript
 	...
@@ -233,14 +233,14 @@ How we would do this is to nest two method definitions in the same path definiti
 
 ## Responses
 
-The `"responses"` parameter is for describing the types of possible responses our API method can provide. 
+The `responses` parameter is for describing the types of possible responses our API method can provide. 
 
 ## Model Schema
 
 A powerful part of Swagger is its model `schema`. Schema are example `.json` parameters that our API method would
 take in or output. 
 
-Typically schema in responses or parameters are referred to by `"$ref":"#/definitions/schemaName"`
+Typically schema in responses or parameters are referred to by `$ref":"#/definitions/schemaName`
 
 ```Javascript
 	...
@@ -250,7 +250,7 @@ Typically schema in responses or parameters are referred to by `"$ref":"#/defini
     ...
 ```
 
-These schemas are then defined in the `"definitions"` section, after `"paths"`.
+These schemas are then defined in the `definitions` section, after `paths`.
 
 ```Javascript
 	...
@@ -264,6 +264,15 @@ These schemas are then defined in the `"definitions"` section, after `"paths"`.
 ```
 
 ## Parameters
+
+The `parameters` parameter defines the input that our API method takes in. 
+
+The `in` parameter defines whether the input will be in the path or in the body of the API method. 
+
+Typically single (say numerical) inputs would go in the `path`, whereas `.json` inputs would use the
+`body` option. 
+
+The `type` of the parameter could be a [varity](https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md#data-types) of options.
 
 
 
