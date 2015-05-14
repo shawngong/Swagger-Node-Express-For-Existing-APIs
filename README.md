@@ -15,7 +15,7 @@ With this guide, you will learn how to configure an existing node API with Swagg
 * [Getting Started](https://github.com/shawngong/Swagger-Node-Express-For-Existing-APIs#getting-started)
 * [Setting up Swagger](https://github.com/shawngong/Swagger-Node-Express-For-Existing-APIs#setting-up-swagger)
 * [Swagger-Spec](https://github.com/shawngong/Swagger-Node-Express-For-Existing-APIs#swagger-spec) 
-* Troubleshooting
+* [Troubleshooting](https://github.com/shawngong/Swagger-Node-Express-For-Existing-APIs#troubleshooting)
 
 # Getting Started
 
@@ -181,3 +181,38 @@ Example
 		"https"
 	]
 ```
+## tags
+
+`tags` are allow for all the methods of an API to be grouped together. The tags should be described in the top of the `.json` file.
+
+```Javascript
+	...
+  "basePath": "/",
+  "tags" : [
+    {"name": "Tag1", 
+    "description": "API for something"
+    }
+  ],
+  ...
+```
+Then in each path, set a `tags` parameter with whatever tag group you want the method to be apart of.
+
+```Javascript
+	...
+	/path/to/method": {
+       "post": {
+          "tags": ["Tag1"],
+          ...
+
+       	}
+    }
+```
+
+# Troubleshooting
+
+## Tags
+
+If you do not set a `tags` parameter for a method, then it will automatically have a `default` tag
+
+Make sure to describe your `tags` in the top of the `.json` file, you can not describe the `tags` in 
+each specific method.
