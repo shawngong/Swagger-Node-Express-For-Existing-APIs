@@ -181,9 +181,9 @@ Example
 		"https"
 	]
 ```
-## tags
+## Tags
 
-`tags` are allow for all the methods of an API to be grouped together. The tags should be described in the top of the `.json` file.
+`tags` allow for all the methods of an API to be grouped together. The tags should be described in the top of the `.json` file.
 
 ```Javascript
 	...
@@ -207,12 +207,88 @@ Then in each path, set a `tags` parameter with whatever tag group you want the m
        	}
     }
 ```
+This will put all of the methods with the `"Tag1"` tag together in the UI. 
+
+## Paths
+
+Paths are exactly as they sound. They are the API method endpoints. 
+
+The `"paths"` parameter allows for nested path definitions. This can be shown in the example. 
+
+A tricky component is setting up multiple types of requests for the same path (i.e) a `get` request
+and a `delete` request in the same path. 
+
+How we would do this is to nest two method definitions in the same path definition. 
+
+```Javascript 
+	"/path/to/method/{jobID}": {
+        "delete":{
+			...
+        },
+      	"get":{
+          	...
+        }
+      }
+```
+
+## Responses
+
+The `"responses"` parameter is for describing the types of possible responses our API method can provide. 
+
+## Model Schema
+
+A powerful part of Swagger is its model `schema`. Schema are example `.json` parameters that our API method would
+take in or output. 
+
+Typically schema in responses or parameters are referred to by `"$ref":"#/definitions/schemaName"`
+
+```Javascript
+	...
+	"schema": {
+                 "$ref": "#/definitions/createJobsRes"
+              }
+    ...
+```
+
+These schemas are then defined in the `"definitions"` section, after `"paths"`.
+
+```Javascript
+	...
+	"definitions" : {
+		"schemaName" : {
+
+		}
+
+	}
+
+```
+
+## Parameters
+
+
 
 # Troubleshooting
 
 ## Tags
 
-If you do not set a `tags` parameter for a method, then it will automatically have a `default` tag
+If we do not set a `tags` parameter for a method, then it will automatically have a `default` tag
 
-Make sure to describe your `tags` in the top of the `.json` file, you can not describe the `tags` in 
+Make sure to describe our `tags` in the top of the `.json` file, we can not describe the `tags` in 
 each specific method.
+
+## Validation 
+
+Swagger uses a [validation tool](https://github.com/swagger-api/validator-badge) to validate all 
+specs. This can cause issues as the default validator uses `http` rather than `https`. Thus,
+some times it is better to turn off the validator. 
+
+To turn off validation, go to `/dist/index.html` and put in `validatorUrl: null`
+
+```Javascript
+	...
+	window.swaggerUi = new SwaggerUi({
+        //Disabled validator, as soc-api is for local use. 
+        validatorUrl: null,
+        url: url,
+    ...
+```
