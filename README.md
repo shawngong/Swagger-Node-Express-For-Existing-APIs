@@ -169,4 +169,15 @@ important things to know about Swagger-spec for Swagger 2.0.
 
 Please consult [here](https://github.com/shawngong/Swagger-Node-Express-For-Existing-APIs/blob/master/sample-spec.json) for a sample Swagger-spec.
 
-## 
+## Https vs. Http
+
+Depending on whether your web app is serving https or http files make sure to adjust your `schemes` component of the 
+Swagger-spec to the appropriate transfer protocol. 
+
+Example
+
+```Javascript
+	"schemes": [
+		"https"
+	]
+```
