@@ -235,6 +235,8 @@ How we would do this is to nest two method definitions in the same path definiti
 
 The `responses` parameter is for describing the types of possible responses our API method can provide. 
 
+These `responses` are typically model schema (see below).
+
 ## Model Schema
 
 A powerful part of Swagger is its model `schema`. Schema are example `.json` parameters that our API method would
@@ -275,7 +277,6 @@ Typically single (say numerical) inputs would go in the `path`, whereas `.json` 
 The `type` of the parameter could be a [varity](https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md#data-types) of options.
 
 
-
 # Troubleshooting
 
 ## Tags
@@ -301,3 +302,5 @@ To turn off validation, go to `/dist/index.html` and put in `validatorUrl: null`
         url: url,
     ...
 ```
+
+
