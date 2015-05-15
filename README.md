@@ -199,7 +199,7 @@ Then in each path, set a `tags` parameter with whatever tag group we want the me
 
 ```Javascript
 	...
-	/path/to/method": {
+	"/path/to/method": {
        "post": {
           "tags": ["Tag1"],
           ...
@@ -221,7 +221,7 @@ and a `delete` request in the same path.
 How we would do this is to nest two method definitions in the same path definition. 
 
 ```Javascript 
-	"/path/to/method/{jobID}": {
+	"/path/to/method/{someVariable}": {
         "delete":{
 			...
         },
@@ -247,7 +247,7 @@ Typically schema in responses or parameters are referred to by `$ref":"#/definit
 ```Javascript
 	...
 	"schema": {
-                 "$ref": "#/definitions/createJobsRes"
+                 "$ref": "#/definitions/response"
               }
     ...
 ```

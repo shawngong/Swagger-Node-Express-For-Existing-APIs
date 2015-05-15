@@ -37,33 +37,33 @@
                 "description": "Job to add to the database",
                 "required": true,
               "schema": {
-                "$ref": "#/definitions/createJobs"
+                "$ref": "#/definitions/create"
                 }
             }
           ],
           "responses": {
             "200": {
-              "description": "createJobs response",
+              "description": "create response",
               "schema": {
-                 "$ref": "#/definitions/createJobsRes"
+                 "$ref": "#/definitions/response"
               }
             }
           }
         }
     },
-    "/path/to/method/{jobID}": {
+    "/path/to/method/{someVariable}": {
         "delete":{
           "tags":["Tag1"],
-          "description":"Deletes a specific job",
-          "operationId":"deleteJob",
+          "description":"Deletes a something",
+          "operationId":"delete",
           "produces": [
             "application/json"
           ],
           "parameters":[
               {
-                "name": "jobID",
+                "name": "ID",
                 "in": "path",
-                "description": "ID of job to delete",
+                "description": "ID to delete",
                 "required": true,
                 "type": "string"
               }
@@ -72,32 +72,32 @@
             "200": {
               "description": "delete response",
               "schema":{
-                "$ref":"#/definitions/deleteJob"
+                "$ref":"#/definitions/deleteRes"
               }
             }
           }
         },
       "get":{
           "tags": [ "Tag1"],
-          "description": "Returns the status of a specific job",
-          "operationId": "findJobById",
+          "description": "Returns the status of something",
+          "operationId": "findById",
           "produces": [
             "application/json"
           ],
           "parameters": [
               {
-                "name": "jobID",
+                "name": "ID",
                 "in": "path",
-                "description": "ID of job to fetch",
+                "description": "ID to fetch",
                 "required": true,
                 "type": "string"
               }
             ],
         "responses": {
             "200": {
-              "description": "job response",
+              "description": "response",
               "schema": {
-                "$ref": "#/definitions/job"
+                "$ref": "#/definitions/response1"
               }
             }
           }
@@ -105,7 +105,7 @@
       }
   },
   "definitions": {
-    "createJobs": {
+    "create": {
       "properties": {
         "eventId": {
           "required":true,
@@ -120,7 +120,7 @@
         } 
       }
     },
-    "job": {
+    "response1": {
         "properties": {
           "jobID": {
             "required":true,
@@ -137,7 +137,7 @@
           }
       }
     },
-    "createJobsRes": {
+    "response": {
         "properties": {
             "jobID": {
               "required": true,
@@ -146,7 +146,7 @@
             }
         }
     },
-    "deleteJob": {
+    "delete": {
         "properties": {
             "jobID": {
               "required": true,
