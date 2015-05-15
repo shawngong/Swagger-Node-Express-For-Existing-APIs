@@ -61,7 +61,7 @@
           ],
           "parameters":[
               {
-                "name": "ID",
+                "name": "someVariable",
                 "in": "path",
                 "description": "ID to delete",
                 "required": true,
