@@ -64,7 +64,7 @@ Then we install these modules using `npm install`
 
 We go to [Swagger-UI](https://github.com/swagger-api/swagger-ui) and clone their repository into our project.
 
-Then we remove the `dist` directory from the Swagger-UI folder and delete the remainder of the folder (it is not necessary). The `dist` folder from Swagger-UI contains a functioning example of Swagger-UI, which is all we need. 
+Then we keep the `dist` directory from the Swagger-UI folder and delete the remainder of the folder (it is not necessary). The `dist` folder from Swagger-UI contains a functioning example of Swagger-UI, which is all we need. 
 
 ## Adding Swagger to our Application
 
