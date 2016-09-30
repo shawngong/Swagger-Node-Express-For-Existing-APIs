@@ -1,3 +1,6 @@
+# EDIT
+I will be updating this guide (Sept 29, 2016). Stay tuned.
+
 # Swagger-Node-Express-For-Existing-APIs
 A comprehensive guide on setting up Swagger in already built node-express-APIs.
 
