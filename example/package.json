@@ -26,5 +26,8 @@
   },
   "homepage": "https://github.com/shawngong/Swagger-Node-Express-For-Existing-APIs/blob/master/README.md",
   "dependencies": {
+    "body-parser": "^1.15.2",
+    "minimist": "^1.2.0",
+    "swagger-node-express": "^2.1.3"
   }
 }
