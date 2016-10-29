@@ -11,7 +11,7 @@ var subpath = express();
 app.use(bodyParser());
 app.use("/v1", subpath);
 
-swagger.setAppHandler(subpath);
+var swagger = require("swagger-node-express").createNew(subpath);
 
 app.use(express.static('dist'));
 

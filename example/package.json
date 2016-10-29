@@ -4,7 +4,7 @@
   "description": "Beginner guide to setting up swagger-ui for node apis",
   "main": "app.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,8 @@
   "homepage": "https://github.com/shawngong/Swagger-Node-Express-For-Existing-APIs/blob/master/README.md",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "lodash": "^4.16.4",
     "minimist": "^1.2.0",
     "swagger-node-express": "^2.1.3"
   }
