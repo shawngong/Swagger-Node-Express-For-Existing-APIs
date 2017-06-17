@@ -2,7 +2,7 @@
 Updated for newest version of [Swagger-Node](https://github.com/swagger-api/swagger-node) (2.1.3).
 
 # EDIT 2
-Please use version 2.X for swagger-node. This guide is not guarenteed to work on any later versions.
+Please use version 2.X for swagger-ui. This guide is not guarenteed to work on any later versions.
 
 # Swagger-Node-Express-For-Existing-APIs
 A comprehensive guide on setting up Swagger in already built node-express-APIs.
