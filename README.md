@@ -2,7 +2,7 @@
 Updated for newest version of [Swagger-Node](https://github.com/swagger-api/swagger-node) (2.1.3).
 
 # EDIT 2
-Please use version 2.X for swagger-ui. This guide is not guarenteed to work on any later versions.
+Please use version 2.X for swagger-ui. This guide is not guaranteed to work on any later versions.
 
 # Swagger-Node-Express-For-Existing-APIs
 A comprehensive guide on setting up Swagger in already built node-express-APIs.
@@ -13,7 +13,7 @@ Tired of your poorly documented APIs? Well, luckily for you [Swagger](http://swa
 
 An example can be found [here](http://petstore.swagger.io/).
 
-However, a lot of the documentation is based around creating Swagger compatable APIs from the ground up.
+However, a lot of the documentation is based around creating Swagger compatible APIs from the ground up.
 With this guide, you will learn how to configure an existing node API with Swagger.
 
 # Contents
@@ -32,7 +32,7 @@ well as an existing node API.
 
 ## The Idea
 
-What we want to do is set up Swagger as a subpath within our existing API (which may or may not already have
+What we want to do is set up Swagger as a sub-path within our existing API (which may or may not already have
 an UI). Thus, the Swagger routes will not interfere with the routes that already exist within our API.
 
 We will then create a [swagger-spec](https://github.com/swagger-api/swagger-spec), which is .json file that contains
@@ -50,16 +50,16 @@ We begin by including `swagger-node-express` and `minimist` in our `package.json
 
 ```javascript
 {
-	...
+  ...
 
-	"dependencies": {
-		"swagger-node-express": "~2.0",
-    	"minimist": "*",
-    	"body-parser": "1.9.x",
-    	...
-	}
+  "dependencies": {
+    "swagger-node-express": "~2.0",
+    "minimist": "*",
+    "body-parser": "1.9.x",
+    ...
+  }
 
-	...
+  ...
 
 }
 ```
@@ -77,76 +77,76 @@ Then we remove the `dist` directory from the Swagger-UI folder and delete the re
 We go into our express application and begin by adding swagger,minimist, and body-parser as dependencies:
 
 ```javascript
-	var express = require( 'express' );
-	...
-	var argv = require('minimist')(process.argv.slice(2));
-	var bodyParser = require( 'body-parser' );
+  var express = require('express');
+  ...
+  var argv = require('minimist')(process.argv.slice(2));
+  var bodyParser = require('body-parser');
 ```
-Then, after the app is initialized, we set swagger to a subpath to avoid route overlaps:
+Then, after the app is initialized, we set swagger to a sub-path to avoid route overlaps:
 
 ```javascript
-	var app = express();
-	var subpath = express();
+  var app = express();
+  var subpath = express();
 
-	app.use(bodyParser());
-	app.use("/v1", subpath);
+  app.use(bodyParser());
+  app.use("/v1", subpath);
 
-	var swagger = require('swagger-node-express').createNew(subpath);
+  var swagger = require('swagger-node-express').createNew(subpath);
 ```
 Next, we make sure that `/dist` is able to serve static files in express:
 
 ```javascript
-	app.use(express.static('dist'));
+  app.use(express.static('dist'));
 ```
 We continue by setting the info for our API:
 
 ```javascript
-	swagger.setApiInfo({
-	    title: "example API",
-	    description: "API to do something, manage something...",
-	    termsOfServiceUrl: "",
-	    contact: "yourname@something.com",
-	    license: "",
-	    licenseUrl: ""
-	});
+  swagger.setApiInfo({
+      title: "example API",
+      description: "API to do something, manage something...",
+      termsOfServiceUrl: "",
+      contact: "yourname@something.com",
+      license: "",
+      licenseUrl: ""
+  });
 ```
 We now want to get the `/dist/index.html` file that we pulled from the [Swagger-UI](https://github.com/swagger-api/swagger-ui) `dist` directory in our API.
 
 ```javascript
-	app.get('/', function (req, res) {
-	    res.sendFile(__dirname + '/dist/index.html');
-	});
+  app.get('/', function (req, res) {
+      res.sendFile(__dirname + '/dist/index.html');
+  });
 ```
 Finally, we configure the api-doc path, and the API domain:
 
 ```javascript
-		// Set api-doc path
-	swagger.configureSwaggerPaths('', 'api-docs', '');
+    // Set api-doc path
+  swagger.configureSwaggerPaths('', 'api-docs', '');
 
-	// Configure the API domain
-	var domain = 'localhost';
-	if(argv.domain !== undefined)
-	    domain = argv.domain;
-	else
-	    console.log('No --domain=xxx specified, taking default hostname "localhost".')
+  // Configure the API domain
+  var domain = 'localhost';
+  if(argv.domain !== undefined)
+      domain = argv.domain;
+  else
+      console.log('No --domain=xxx specified, taking default hostname "localhost".')
 
-	// Configure the API port
-	var port = 8080;
-	if(argv.port !== undefined)
-	    port = argv.port;
-	else
-	    console.log('No --port=xxx specified, taking default port ' + port + '.')
+  // Configure the API port
+  var port = 8080;
+  if(argv.port !== undefined)
+      port = argv.port;
+  else
+      console.log('No --port=xxx specified, taking default port ' + port + '.')
 
-	// Set and display the application URL
-	var applicationUrl = 'http://' + domain + ':' + port;
-	console.log('snapJob API running on ' + applicationUrl);
-
-
-	swagger.configure(applicationUrl, '1.0.0');
+  // Set and display the application URL
+  var applicationUrl = 'http://' + domain + ':' + port;
+  console.log('snapJob API running on ' + applicationUrl);
 
 
-	// Start the web server
-	app.listen(port);
+  swagger.configure(applicationUrl, '1.0.0');
+
+
+  // Start the web server
+  app.listen(port);
 ```
 ## Configuring our index.html file
 
@@ -155,10 +155,10 @@ Go to `/dist/index.html` and find the `url = "http://petstore.swagger.io/v2/swag
 We will replace it with `url = "api-docs.json";`
 
 ```javascript
-	if (url && url.length > 1) {
+  if (url && url.length > 1) {
         url = decodeURIComponent(url[1]);
     } else {
-    	<del>url = "http://petstore.swagger.io/v2/swagger.json";</del>
+      <del>url = "http://petstore.swagger.io/v2/swagger.json";</del>
         url = "api-docs.json";
     }
 ```
@@ -182,16 +182,16 @@ Swagger-spec to the appropriate transfer protocol.
 Example
 
 ```Javascript
-	"schemes": [
-		"https"
-	]
+"schemes": [
+  "https"
+]
 ```
 ## Tags
 
 `tags` allow for all the methods of an API to be grouped together. The tags should be described in the top of the `.json` file.
 
 ```Javascript
-	...
+  ...
   "basePath": "/",
   "tags" : [
     {"name": "Tag1",
@@ -203,14 +203,13 @@ Example
 Then in each path, set a `tags` parameter with whatever tag group we want the method to be apart of.
 
 ```Javascript
-	...
-	"/path/to/method": {
-       "post": {
-          "tags": ["Tag1"],
-          ...
-
-       	}
-    }
+...
+"/path/to/method": {
+  "post": {
+    "tags": ["Tag1"],
+    ...
+  }
+}
 ```
 This will put all of the methods with the `"Tag1"` tag together in the UI.
 
@@ -226,14 +225,14 @@ and a `delete` request in the same path.
 How we would do this is to nest two method definitions in the same path definition.
 
 ```Javascript
-	"/path/to/method/{someVariable}": {
-        "delete":{
-			...
-        },
-      	"get":{
-          	...
-        }
-      }
+"/path/to/method/{someVariable}": {
+  "delete":{
+    ...
+  },
+  "get":{
+    ...
+  }
+}
 ```
 
 ## Responses
@@ -250,23 +249,22 @@ take in or output.
 Typically schema in responses or parameters are referred to by `$ref":"#/definitions/schemaName`
 
 ```Javascript
-	...
-	"schema": {
-                 "$ref": "#/definitions/response"
-              }
-    ...
+...
+"schema": {
+  "$ref": "#/definitions/response"
+}
+...
 ```
 
 These schemas are then defined in the `definitions` section, after `paths`.
 
 ```Javascript
-	...
-	"definitions" : {
-		"schemaName" : {
-
-		}
-
-	}
+...
+"definitions" : {
+  "schemaName" : {
+    ...
+  }
+}
 
 ```
 
@@ -300,10 +298,11 @@ some times it is better to turn off the validator.
 To turn off validation, go to `/dist/index.html` and put in `validatorUrl: null`
 
 ```Javascript
-	...
-	window.swaggerUi = new SwaggerUi({
-        //Disabled validator, as soc-api is for local use.
-        validatorUrl: null,
-        url: url,
-    ...
+...
+window.swaggerUi = new SwaggerUi({
+  //Disabled validator, as soc-api is for local use.
+  validatorUrl: null,
+  url: url,
+  ...
+});
 ```
