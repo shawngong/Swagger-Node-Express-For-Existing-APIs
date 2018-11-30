@@ -120,6 +120,7 @@ We now want to get the `/dist/index.html` file that we pulled from the [Swagger-
 Finally, we configure the api-doc path, and the API domain:
 
 ```javascript
+	swagger.setAppHandler(app);
 		// Set api-doc path
 	swagger.configureSwaggerPaths('', 'api-docs', '');
 
